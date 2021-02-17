@@ -1,6 +1,7 @@
 let inquirer = require("inquirer");
 let fs = require("fs");
 let validator = require("./utils/validator");
+let generator = require("./utils/generator");
 
 let questions = [
     {
@@ -41,7 +42,7 @@ let questions = [
     {
         message: "license",
         type: "list",
-        choices:["ISC","MIT","not selected"],
+        choices:["not selected","ISC","MIT","GPL","APACHE"],
         name: "license",
         validate: function(response){
             return validator(response,"license");
@@ -68,6 +69,22 @@ let questions = [
 ]
 inquirer.prompt(questions).then(function(response){
     console.log(response);
+    let licenseBadge = generator.renderLicenseBadge(response);
+    
+    let licenseLink = generator.renderLicenseSection(response);
+    let contributionLink = generator.rendercontributionSection(response);
+    let descriptionLink = generator.renderDescriptionSection(response);
+    let installationLink = generator.renderInstallationSection(response);
+    let usageLink = generator.renderUsageSection(response);
+    let testLink = generator.renderTestSection(response);
+    // let licenseLink = generator.renderLicenseLink(response);
+
+    let titleSection = generator.generateMarkdown(response.title);
+    let contributionSection = generator.generateMarkdown(response.contribution);
+    let decriptionSection = generator.generateMarkdown(response.decription);
+    let installationSection = generator.generateMarkdown(response.installation);
+    let usageSection = generator.generateMarkdown(response.usage);
+    let testsSection = generator.generateMarkdown(response.tests);
 })
 
 
