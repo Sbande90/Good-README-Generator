@@ -2,5 +2,23 @@
   "dependencies": {
     "fs": "^0.0.1-security",
     "inquirer": "^7.3.3"
-  }
+  },
+  "name": "good-readme-generator",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sbande90/Good-README-Generator.git"
+  },
+  "author": "Salfo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sbande90/Good-README-Generator/issues"
+  },
+  "homepage": "https://github.com/Sbande90/Good-README-Generator#readme"
 }
