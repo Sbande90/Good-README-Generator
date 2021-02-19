@@ -1,6 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(data) {
+let generator = {
+ renderLicenseBadge: function(data) {
     if(!data.license){
         return "";
     }else{
@@ -26,90 +27,98 @@ function renderLicenseBadge(data) {
             return "";
         }
     }
-}
+},
 
 // ISC","MIT","GPL","APACHE
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(data) {
+ renderLicenseLink: function(data) {
     if(!data.license){
         return "";
     }else{
         return "[License](#license)"
     }
-}
+},
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(data) {
+ renderLicenseSection: function(data) {
     if(!data.license){
         return "";
     }else{
         return "[License](#license)"
     }
-}
+},
 
-function renderDescriptionSection(data) {
+ renderDescriptionSection: function(data) {
     if(!data.description){
         return "";
     }else{
         return "[Description](#description)"
     }
-}
+},
 
-function renderUsageSection(data) {
+ renderUsageSection: function(data) {
     if(!data.usage){
         return "";
     }else{
         return "[Usage](#usage)"
     }
-}
+},
 
-function renderInstallationSection(data) {
+ renderInstallationSection: function(data) {
     if(!data.installation){
         return "";
     }else{
         return "[Installation](#installation)"
     }
-}
+},
 
-function renderTestSection(data) {
+ renderTestSection: function(data) {
     if(!data.test){
         return "";
     }else{
         return "[Tests](#tests)"
     }
-}
+},
 
-function renderContributionSection(data) {
+ renderContributionSection: function(data) {
     if(!data.contribution){
         return "";
     }else{
         return "[Contribution](#contribution)"
     }
-}
+},
+
+renderQuestionsSection: function(data) {
+    if(!data.email || !data.username || !data.info){
+        return "";
+    }else{
+        return "[Questions](#questions)"
+    }
+},
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+ generateMarkdown: function(data) {
     if(data){
-        return `# ${data}`;
+        return `## ${data}`;
     }
     return "";
 //   return `# ${data.title}`;
-}
+},
 
-function titleMarkdown(data) {
+ titleMarkdown: function(data) {
     return `# ${data.title}`;
   }
+}
+module.exports = generator;
 
-module.exports = generateMarkdown;
-
-module.exports = renderLicenseBadge;
+/*module.exports = renderLicenseBadge;
 module.exports = renderLicenseLink;
 module.exports = renderLicenseSection;
 module.exports = renderContributionSection;
 module.exports = renderDescriptionSection;
 module.exports = renderInstallationSection;
 module.exports = renderTestSection;
-module.exports = renderUsageSection;
+module.exports = renderUsageSection;*/

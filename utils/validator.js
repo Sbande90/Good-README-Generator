@@ -47,6 +47,31 @@ function validator(response, name) {
     if (name == "tests") {
         return true;
     }
+ // github
+    if (name == "username") {
+        if (response) {
+            return true;
+        } else {
+            return "please provide user name";
+        }
+    }
+// email
+    if (name == "email") {
+        if (response) {
+            return true;
+        } else {
+            return "please provide email address";
+        }
+    }
+
+    //info
+    if (name == "info") {
+        if (response) {
+            return true;
+        } else {
+            return "please indicate the best way to reach you";
+        }
+    }
 }
 
 module.exports = validator;
